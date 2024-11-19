@@ -157,7 +157,59 @@
                 </div>
 
             </div>
+
+            <div class="row py-2">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form method="POST" th:action="@{/pruebas/QueryName}"
+                          class="was-validated">
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+                                <input type="text" class="form-control"
+                                       th:name="productName"
+                                       th:value="${productName}"
+                                       placeholder="Nombre del producto a buscar..."
+                                       aria-label="Username"
+                                       aria-describedby="basic-addon1"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fas fa-check"></i> Buscar
+                            </button>
+                        </div>
+                    </form>
+                </div>
         </section> 
+
+        <section th:fragment="existencias" class="bg-light">
+            <div class="row py-2">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form method="POST" th:action="@{/pruebas/existencias}"
+                          class="was-validated">
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+                                <input type="number" class="form-control"
+                                       th:name="existencias"
+                                       th:value="${existencias}"
+                                       placeholder="Buscar existencias..."
+                                       aria-label="Existencias"
+                                       aria-describedby="basic-addon1"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn" style="background-color: thistle">
+                                <i class="fas fa-check"></i> Buscar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+        </section>
 
 
     </body>

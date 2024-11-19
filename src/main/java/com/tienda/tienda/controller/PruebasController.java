@@ -84,4 +84,30 @@ public class PruebasController {
         return "/pruebas/listado2";
     }
 
+    @PostMapping("/QueryName")
+    public String consultaQueryName(@RequestParam(value = "productName") String nombre, Model model) {
+        List<Producto> productos = productoService.buscarPorNombre(nombre);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("productName", nombre);
+        return "/pruebas/listado2";
+    }
+    
+    @GetMapping("/listado3")
+    public String listado3(Model model) {
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        return "/pruebas/listado3";
+    }
+    
+    @PostMapping("/existencias")
+    public String consultaExistencias(@RequestParam(value = "existencias") Integer existencias, Model model) {
+        List<Producto> productos = productoService.buscarPorExistencia(existencias);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("existencias", existencias);
+        return "/pruebas/listado3";
+    }
+    
 }
